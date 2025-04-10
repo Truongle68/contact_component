@@ -1,7 +1,9 @@
+import Contact from "@/components/Contact";
+
 export default function Home() {
   return (
-    <div className="">
-      
-    </div>
+    <main className="min-h-screen">
+      <Contact/>
+    </main>
   );
 }

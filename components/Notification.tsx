@@ -7,7 +7,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import classNames from "classnames";
 import Image, { StaticImageData } from "next/image";
 import avatar from "../public/pic/dalat-3.jpg";
-
+import {formatDate} from "../utils/dateLogics"
+ 
 library.add(faBell, faUser);
 
 type Notification = {
@@ -61,6 +62,22 @@ export default function Notification() {
       content: "",
       read: true,
       performAt: "2025-02-02T12:00:00Z",
+    },
+    {
+      performBy: "Dani Davis",
+      action: "shared",
+      objectName: "your video",
+      content: "",
+      read: false,
+      performAt: "2025-02-02T12:00:00Z",
+    },
+    {
+      performBy: "PVTruong ngu",
+      action: "is playing",
+      objectName: "League of Legends",
+      content: "",
+      read: false,                                        
+      performAt: "2025-04-14T22:00:00Z",
     },
   ], []);
 
@@ -194,6 +211,7 @@ export default function Notification() {
                   {notifications.objectName}
                 </span>
                 <span className="">{notifications.content}</span>
+                <span className={`text-xs ${!notifications.read ? 'text-blue-800' : ''}`}>{formatDate(notifications.performAt)}</span>
               </div>
               {/* unread sight */}
               {!notifications.read && (

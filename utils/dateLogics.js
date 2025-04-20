@@ -1,8 +1,6 @@
 export const formatDate = (dateString) => {
     const date = new Date(dateString);
-    console.log("date: ", date)
     const now = new Date();
-    console.log("now: ", now)
     const diffMs = Math.abs(now - date + 7 * 60 * 60 * 1000);
   
     const timeUnits = [

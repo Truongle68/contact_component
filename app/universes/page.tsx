@@ -1,5 +1,6 @@
 "use client";
 import { FadeInImage } from "@/components/FadeInImage";
+import Image from "next/image";
 import React from "react";
 
 const Universe = () => {
@@ -15,12 +16,29 @@ const Universe = () => {
   ];
 
   return (
-    <div className="min-h-screen py-10 px-4">
-      <div className="grid grid-cols-2 gap-4">
-        {picList.map((pic, index) => (
-          <FadeInImage key={index} src={pic.href} alt={pic.name} />
-        ))}
+    <div className="min-h-screen py-10 px-4 relative overflow-hidden">
+      <div className="md:max-w-[85%] mx-auto z-10">
+        <div className="min-h-[50vh]"></div>
+
+        <div className=" grid md:grid-cols-2 gap-20">
+          {picList.map((pic, index) => (
+            <FadeInImage key={index} src={pic.href} alt={pic.name} />
+          ))}
+        </div>
       </div>
+
+      <div className="fixed inset-0 -z-20">
+        <Image
+          src="/pic/bg.jpg"
+          alt="background"
+          fill
+          sizes="100vw"
+          className="max-h-screen "
+          priority
+        />
+      </div>
+
+      <div className="fixed inset-0 bg-black/60 -z-10" />
     </div>
   );
 };
